@@ -1,0 +1,395 @@
+/* Modern JetBus Design System - Premium Dark/Indigo Aesthetic */
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --accent-primary: #6366f1;
+  --accent-secondary: #3b82f6;
+  --accent-glow: rgba(99, 102, 241, 0.25);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: rgba(148, 163, 184, 0.25);
+  --border-focus: rgba(99, 102, 241, 0.35);
+  
+  /* Seat Colors */
+  --seat-available: #10b981;
+  --seat-available-glow: rgba(16, 185, 129, 0.2);
+  --seat-selected: #3b82f6;
+  --seat-selected-glow: rgba(59, 130, 246, 0.25);
+  --seat-booked: #f43f5e;
+  --seat-booked-glow: rgba(244, 63, 94, 0.15);
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.45);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.35);
+}
+
+/* Glassmorphism Container */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  box-shadow: 0 8px 30px 0 rgba(15, 23, 42, 0.08);
+  transition: var(--transition-smooth);
+}
+.glass-panel:hover {
+  border-color: rgba(148, 163, 184, 0.35);
+  box-shadow: 0 12px 40px 0 rgba(15, 23, 42, 0.12);
+}
+
+/* Navbar Custom Styles */
+.navbar-custom {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.navbar-brand-custom {
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #4f46e5 0%, var(--accent-primary) 50%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-link-custom {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+  border-radius: 8px;
+  padding: 0.5rem 1rem !important;
+}
+.nav-link-custom:hover, .nav-link-custom.active {
+  color: var(--text-primary) !important;
+  background: rgba(15, 23, 42, 0.06);
+}
+
+/* Forms & Input Styling */
+.form-label-custom {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.form-control-custom {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  border-radius: 10px !important;
+  padding: 0.75rem 1rem !important;
+  transition: var(--transition-smooth) !important;
+}
+.form-control-custom:focus {
+  background: rgba(255, 255, 255, 1) !important;
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1) !important;
+  outline: none;
+}
+
+.form-icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: rgba(71, 85, 105, 0.75);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.form-control-custom.ps-5 {
+  padding-left: 3rem !important;
+}
+
+/* Buttons */
+.btn-primary-glow {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 10px;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px var(--accent-glow);
+}
+.btn-primary-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--accent-glow);
+  filter: brightness(1.1);
+}
+.btn-primary-glow:active {
+  transform: translateY(0);
+}
+
+.btn-secondary-custom {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 10px;
+  transition: var(--transition-smooth);
+}
+.btn-secondary-custom:hover {
+  background: rgba(248, 250, 252, 0.95);
+  border-color: rgba(148, 163, 184, 0.35);
+  color: var(--text-primary);
+}
+
+/* Bus Search Card */
+.search-banner {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+.hero-title span {
+  background: linear-gradient(135deg, #a5b4fc 0%, var(--accent-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Search Bus Result Item */
+.bus-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: var(--transition-smooth);
+  overflow: hidden;
+}
+.bus-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.1);
+}
+.bus-badge {
+  background: rgba(99, 102, 241, 0.12);
+  color: #4338ca;
+  border: 1px solid rgba(99, 102, 241, 0.24);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+}
+.bus-fare {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.bus-timings {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Seat Selection Grid & Interactive Layout */
+.seat-map-container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+}
+.driver-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed var(--border-color);
+}
+.driver-wheel {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px double rgba(71, 85, 105, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+.seat-gap {
+  grid-column: 3; /* creates aisle after column 2 */
+}
+
+/* Interactive Seat States */
+.seat-item {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  user-select: none;
+}
+
+.seat-item.available {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--seat-available);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+.seat-item.available:hover {
+  background: rgba(16, 185, 129, 0.25);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--seat-available-glow);
+}
+
+.seat-item.selected {
+  background: var(--seat-selected);
+  color: #ffffff;
+  border-color: #60a5fa;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--seat-selected-glow);
+  animation: selectPulse 1.5s infinite alternate;
+}
+
+.seat-item.booked {
+  background: rgba(244, 63, 94, 0.15);
+  color: var(--seat-booked);
+  border-color: rgba(244, 63, 94, 0.25);
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+@keyframes selectPulse {
+  0% { box-shadow: 0 0 8px var(--seat-selected-glow); }
+  100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.7); }
+}
+
+.seat-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+}
+.legend-available { background: rgba(16, 185, 129, 0.2); border: 1.5px solid var(--seat-available); }
+.legend-selected { background: var(--seat-selected); }
+.legend-booked { background: rgba(244, 63, 94, 0.2); border: 1.5px solid var(--seat-booked); }
+
+/* Booking History Status Badges */
+.status-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.status-confirmed {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--seat-available);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.status-cancelled {
+  background: rgba(244, 63, 94, 0.15);
+  color: var(--seat-booked);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+/* Floating Animation Utility */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Booking Receipt Styling */
+.receipt-card {
+  max-width: 550px;
+  margin: 0 auto;
+  border-radius: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.receipt-header {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+.receipt-body {
+  padding: 2.5rem 2rem;
+}
+.receipt-divider {
+  border-top: 2px dashed var(--border-color);
+  margin: 1.5rem 0;
+}
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  font-size: 0.95rem;
+}
+.receipt-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.receipt-value {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Spinner Custom Glow */
+.spinner-glow {
+  color: var(--accent-primary);
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}
